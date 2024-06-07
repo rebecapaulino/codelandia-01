@@ -115,6 +115,16 @@ main {
   }
 }
 
+@keyframes slide-in {
+  from {
+    transform: translateY(40px);
+    opacity: 0.25;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .article {
   padding: 32px 24px;
   display: flex;
@@ -122,7 +132,8 @@ main {
   background: var(--dark-20);
   border: 2px solid var(--dark-40);
   border-radius: 8px;
-
+  animation: slide-in 0.4s ease-out;
+  transition: 0.2s ease-out;
   div {
     display: flex;
     justify-content: space-between;
@@ -136,6 +147,17 @@ main {
 
     svg {
       color: transparent;
+
+      &:hover {
+        color: var(--brand-color);
+        cursor: pointer;
+        transition: 0.2s ease-out;
+        filter: drop-shadow(0 0 2px pink);
+      }
+
+      &:active {
+        transform: scale(1.4);
+      }
     }
   }
 
@@ -151,6 +173,10 @@ main {
     font-weight: 500;
     line-height: 22.4px;
     color: var(--dark-50);
+  }
+
+  &:nth-of-type(2) {
+    animation-delay: 0.2s;
   }
 
   &.active {
